@@ -1,0 +1,43 @@
+%% bit.ly/bibtex
+%% search "bibtex wikibook" - https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management
+
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage[round]{natbib}
+
+\author{Sean Laverty}
+\title{Day \#7: bibtex}
+\date{Wednesday, September 13, 2023}
+
+%% required for operatorname
+\usepackage{amsmath} 
+%% custom commands (macros)
+\newcommand{\Var}[0]{\operatorname{Var}}
+\newcommand{\ddx}[1]{\frac{d #1}{dx}}
+
+\begin{document}
+\maketitle
+\newpage
+
+
+I've spent all morning writing up notes for one of my other classes using PreTeXt, it's a language that sort of hybridizes {\LaTeX} and xml or html.  I also read about weird, possibly fake, topics in American history \citep{smit54}.  We have recently switched to an open-source textbook for our calculus sequence \citep{openstax}.
+%% \citep{key} does parenthetical citation
+%% \cite{key} and \citet{key} do in-text citations
+
+In statistics we are often interested in variance, for a variable \(X\), we might be interested in the quantity \(\Var(X)\). A derivative is \(\ddx{f}\).
+%% from preamble
+%% \newcommand{\Var}{\operatorname{Var}}
+%% \newcommand{\ddx}[1]{\frac{d #1}{dx}}
+
+\bibliography{sample.bib}
+\bibliographystyle{unsrtnat} %% requires natbib package
+
+%% below are built-in and use \cite{}
+%% options: plain, alpha, ... 
+%% abbrv - first initial
+%% apalike - full names + year
+%% unsrt
+
+%% more choices with a new package: natbib
+\end{document}
