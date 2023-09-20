@@ -1,0 +1,61 @@
+% Copyright 2004 by Madhusudan Singh <madhusudan.singh@gmail.com>
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\ProvidesPackageRCS $Header: /cvsroot/latex-beamer/latex-beamer/themes/color/beamercolorthemefall.sty,v 1.6 2007/01/28 20:48:24 tantau Exp $
+
+\mode<presentation>
+
+\definecolor{euyellow}{rgb}{0.8,0.75,0.1} % Definition of yellow color
+\definecolor{eublue}{rgb}{0,0,0.1} % Definition of yellow color
+
+\definecolor{orangefall}{rgb}{0.66555184, 0.25752508, 0.07692308}%{.5750799, .4217252, 0.00319488} % Definition of blue color
+\definecolor{greenfall}{rgb}{0.3402062, 0.5515464, 0.1082474}%{0.7215686, 0.2431373, 0.03529412} % Definition of blue color
+\definecolor{yellowfall}{rgb}{0.54444444, 0.42777778, 0.02777778}%{0.5674419, .0.2790698, 0.1534884} % Definition of blue color
+\definecolor{blackfall}{rgb}{0.4807692, 0.3461538, 0.1730769}%{0.4177215, 0.3164557, 0.2658228} % Definition of blue color
+\definecolor{redfall}{rgb}{0.7229437, 0.1601732, 0.1168831}%{0.3621399, 0.4320988, 0.2057613}
+
+\setbeamercolor{structure}{fg=redfall}
+\setbeamercolor*{normal text}{fg=yellowfall!70!white, bg=black}
+\setbeamercolor*{alerted text}{fg=greenfall!70!black, bg=black}
+\setbeamercolor*{example text} {fg=orangefall!70!black, bg=black}
+
+
+% RGB: 122, 60, 33
+% RGB: 33, 25, 21
+% RGB: 86, 105, 50
+
+% Main title-bar colors
+\setbeamercolor{palette primary}{fg=yellowfall!70!white,bg=greenfall!80!black} % !<#> is transparency
+\setbeamercolor{palette secondary}{fg=yellowfall!70!white,bg=yellowfall!80!black}
+\setbeamercolor{palette tertiary}{fg=yellowfall!70!white,bg=orangefall!80!black}
+\setbeamercolor{palette quaternary}{fg=yellowfall!70!white,bg=redfall!80!black}
+
+\setbeamercolor{titlelike}{parent=palette primary, fg=normal text.fg}
+
+% Inner block colors
+\setbeamercolor{block title}{use=normal text,fg=black,bg=normal text.fg}
+\setbeamercolor{block title alerted}{use=alerted text,fg=black,bg=alerted text.fg}
+\setbeamercolor{block title example}{use=example text,fg=black,bg=example text.fg}
+
+\setbeamercolor{block body}{parent=normal text,use=block title,fg=block title.bg,fg=normal text.fg}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,fg=normal text.fg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,fg=normal text.fg}
+
+\setbeamercolor{sidebar}{bg=yellowfall!70!black}
+ 
+\setbeamercolor{palette sidebar primary}{fg=orangefall}
+\setbeamercolor{palette sidebar secondary}{fg=yellowfall}
+\setbeamercolor{palette sidebar tertiary}{fg=redfall}
+\setbeamercolor{palette sidebar quaternary}{fg=greenfall}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+\mode
+<all>

@@ -1,0 +1,58 @@
+% Copyright 2004 by Madhusudan Singh <madhusudan.singh@gmail.com>
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\ProvidesPackageRCS $Header: /cvsroot/latex-beamer/latex-beamer/themes/color/beamercolorthemeteal.sty,v 1.6 2007/01/28 20:48:24 tantau Exp $
+
+\mode<presentation>
+
+\definecolor{chalkboard}{rgb}{0.0745098, 0.09411765, 0.1137255}
+\definecolor{chalk}{rgb}{0.945098, 0.945098, 0.945098}
+\definecolor{royal}{rgb}{0, 0.2, 0.4}
+\definecolor{gold}{rgb}{1, 0.8, 0}
+
+\setbeamercolor{structure}{fg=chalk, bg=chalkboard}
+\setbeamercolor*{normal text}{fg=chalk, bg= chalkboard}
+\setbeamercolor*{alerted text}{fg=gold, bg= chalkboard}
+\setbeamercolor*{example text} {fg=chalk, bg= chalkboard}
+
+
+% RGB: 122, 60, 33
+% RGB: 33, 25, 21
+% RGB: 86, 105, 50
+
+% Main title-bar colors
+\setbeamercolor{palette primary}{fg=gold!90!chalk,bg=royal} % !<#> is transparency
+\setbeamercolor{palette secondary}{fg=gold!60!chalk,bg= royal!90!chalk}
+\setbeamercolor{palette tertiary}{fg=gold!30!chalk,bg= royal!60!chalk}
+\setbeamercolor{palette quaternary}{fg=chalk,bg= black}
+
+\setbeamercolor{titlelike}{parent=palette primary, fg=alerted text.fg}
+
+% Inner block colors
+\setbeamercolor{block title}{use=normal text,fg=black,bg=normal text.fg}
+\setbeamercolor{block title alerted}{use=alerted text,fg=black,bg=alerted text.fg}
+\setbeamercolor{block title example}{use=example text,fg=black,bg=example text.fg}
+
+\setbeamercolor{block body}{parent=normal text,use=block title,fg=block title.bg,fg=normal text.fg}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,fg=normal text.fg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,fg=normal text.fg}
+
+\setbeamercolor{sidebar}{bg=royal!70!black}
+  
+%:
+\setbeamercolor{palette sidebar primary}{fg=royal}
+\setbeamercolor{palette sidebar secondary}{fg=royal}
+\setbeamercolor{palette sidebar tertiary}{fg=royal}
+\setbeamercolor{palette sidebar quaternary}{fg=royal}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+\mode
+<all>
