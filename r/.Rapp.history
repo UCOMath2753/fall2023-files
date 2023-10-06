@@ -1,252 +1,1534 @@
-1/3-1/4
+plot(out, type = 'l', ylim = c(0, 1500))
+## change h#
+parms['h'] <- 3.0#
+## recalculate solution with new initial value#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = harvestMod, parms = parms))#
+## add to plot#
+lines(out, type = 'l', ylim = c(0, 1500), col = 'blue')
+parms['h'] <- 1.0
+out <- as.data.frame(lsoda(y = xstart, times = times, func = harvestMod, parms = parms))
+lines(out, type = 'l', ylim = c(0, 1500), col = 'blue')
+parms['h'] <- 2.0
+out <- as.data.frame(lsoda(y = xstart, times = times, func = harvestMod, parms = parms))
+lines(out, type = 'l', ylim = c(0, 1500), col = 'blue')
+parms['h'] <- 3.0
+out <- as.data.frame(lsoda(y = xstart, times = times, func = harvestMod, parms = parms))
+lines(out, type = 'l', ylim = c(0, 1500), col = 'blue')
+## install.packages("deSolve")#
+library(deSolve)#
+###
+harvestMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dN <- r*N*(1 - N/K) - h*N#
+    res <- list(c(dN))#
+  })#
+}#
+#
+## The parameters #
+parms <- c(r = 0.01, K = 1000, h = 0.1)#
+## calculates the critical harvesting value#
+parms['r']*parms['K']/4#
+#
+## vector of timesteps#
+## seq() makes sequences of numbers#
+times <- seq(0, 1000, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(N = 1500)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = harvestMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)#
+#
+## Default plot method#
+plot(out, type = 'l', ylim = c(0, 1500))#
+#abline(h = parms['K'])#
+#
+## experiments#
+## change N0#
+xstart <- c(N = 500)#
+## recalculate solution with new initial value#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = harvestMod, parms = parms))#
+## add to plot#
+lines(out, type = 'l', ylim = c(0, 1500), col = 'blue')#
+#
+## change h#
+parms['h'] <- 3.0#
+## recalculate solution with new initial value#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = harvestMod, parms = parms))#
+## add to plot#
+lines(out, type = 'l', ylim = c(0, 1500), col = 'blue')
+## install.packages("deSolve")#
+library(deSolve)#
+###
+harvestMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dN <- r*N*(1 - N/K) - h*N#
+    res <- list(c(dN))#
+  })#
+}#
+#
+## The parameters #
+parms <- c(r = 0.01, K = 1000, h = 0.1)#
+## calculates the critical harvesting value#
+parms['r']*parms['K']/4#
+#
+## vector of timesteps#
+## seq() makes sequences of numbers#
+times <- seq(0, 1000, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(N = 1500)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = harvestMod, parms = parms))
+## install.packages("deSolve")#
+library(deSolve)#
+###
+harvestMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dN <- r*N*(1 - N/K) - h*N#
+    res <- list(c(dN))#
+  })#
+}#
+#
+## The parameters #
+parms <- c(r = 0.01, K = 1000, h = 0.1)#
+## calculates the critical harvesting value#
+parms['r']*parms['K']/4#
+#
+## vector of timesteps#
+## seq() makes sequences of numbers#
+times <- seq(0, 1000, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(N = 1500)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = harvestMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)#
+#
+## Default plot method#
+plot(out, type = 'l', ylim = c(0, 1500))
+parms <- c(r = 0.01, K = 1000, h = 0.001)#
+## calculates the critical harvesting value#
+parms['r']*parms['K']/4#
+#
+## vector of timesteps#
+## seq() makes sequences of numbers#
+times <- seq(0, 1000, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(N = 1500)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = harvestMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)#
+#
+## Default plot method#
+plot(out, type = 'l', ylim = c(0, 1500))
+parms['h'] <- 0.050#
+## recalculate solution with new initial value#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = harvestMod, parms = parms))#
+## add to plot#
+lines(out, type = 'l', ylim = c(0, 1500), col = 'blue')
+## change h#
+parms['h'] <- 0.0050#
+## recalculate solution with new initial value#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = harvestMod, parms = parms))#
+## add to plot#
+lines(out, type = 'l', ylim = c(0, 1500), col = 'blue')
+parms['h'] <- 0.00050#
+## recalculate solution with new initial value#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = harvestMod, parms = parms))#
+## add to plot#
+lines(out, type = 'l', ylim = c(0, 1500), col = 'blue')
+parms['h'] <- 0.000#
+## recalculate solution with new initial value#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = harvestMod, parms = parms))#
+## add to plot#
+lines(out, type = 'l', ylim = c(0, 1500), col = 'blue')
+## install.packages("deSolve")#
+library(deSolve)#
+###
+harvestMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dN <- r*N*(1 - N/K) - h*N#
+    res <- list(c(dN))#
+  })#
+}#
+#
+## The parameters #
+parms <- c(r = 0.01, K = 1000, h = 0.001)#
+## calculates the critical harvesting value#
+parms['r']*parms['K']/4#
+#
+## vector of timesteps#
+## seq() makes sequences of numbers#
+times <- seq(0, 1000, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(N = 1500)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = harvestMod, parms = parms))
+plot(out, type = 'l', ylim = c(0, 1500))
+for(ic = seq(0, 1500, by = 100)){#
+	xstart <- c(N = ic)#
+	out <- as.data.frame(lsoda(y = xstart, times = times, func = harvestMod, parms = parms))#
+## add to plot#
+lines(out, type = 'l', ylim = c(0, 1500), col = 'blue')#
+}
+for(ic in seq(0, 1500, by = 100)){#
+	xstart <- c(N = ic)#
+	out <- as.data.frame(lsoda(y = xstart, times = times, func = harvestMod, parms = parms))#
+## add to plot#
+lines(out, type = 'l', ylim = c(0, 1500), col = 'blue')#
+}
+library(deSolve)
+SIMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dS <- gamma*I - beta*S*I#
+    dI <- beta*S*I - gamma*I#
+    res <- list(c(dS, dI))#
+  })#
+}#
+#
+## The parameters #
+parms <- c(beta = 1, gamma = 1)#
+#
+## vector of timesteps#
+times <- seq(0, 1000, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(S = 95, I = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)
+plot(out[, c("S", "I")], type = 'l')
+plot(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100))
+points(xstart)
+plot(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100))
+points(xstart["S"], xstart["I"])
+abline(v = parms['gamma']/parms['beta'], col="gray")
+parms <- c(beta = 1, gamma = 1/14)
+abline(v = parms['gamma']/parms['beta'], col="gray")
+SIMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dS <- gamma*I - beta*S*I#
+    dI <- beta*S*I - gamma*I#
+    res <- list(c(dS, dI))#
+  })#
+}#
+#
+## The parameters #
+parms <- c(beta = 0.01, gamma = 1/14)#
+#
+## vector of timesteps#
+times <- seq(0, 1000, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(S = 95, I = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)#
+#
+## phase plane#
+plot(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100))#
+points(xstart["S"], xstart["I"])#
+abline(v = parms['gamma']/parms['beta'], col="gray")
+xstart <- c(S = 5, I = 95)
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))
+lines(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100), col = "red")
+xstart <- c(S = 50, I = 50)
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))
+lines(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100), col = "blue")
+xstart <- c(S = 40, I = 60)
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))
+lines(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100), col = "blue")
+xstart <- c(S = 10, I = 20)
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))
+lines(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100), col = "blue")
+matplot(out$time, out[, c("S", "I")], type='l')
+xstart <- c(S = 95, I = 5)
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))
+lines(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100), col = "blue")
+matplot(out$time, out[, c("S", "I")], type='l')
+times <- seq(0, 100, by = 0.1)
+xstart <- c(S = 95, I = 5)#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))#
+#
+matplot(out$time, out[, c("S", "I")], type='l')
+matplot(out$time, out[, c("S", "I")], type='l', ylim = c(0, 100))
+BCMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dB <- r*B - p*B*C#
+    dC <- epsilon*p*B*C - m*C#
+    res <- list(c(dB, dC))#
+  })#
+}
+BCMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dB <- r*B - p*B*C#
+    dC <- epsilon*p*B*C - m*C#
+    res <- list(c(dB, dC))#
+  })#
+}#
+#
+## The parameters #
+parms <- c(r = 0.01, p = 0.01, epsilon = 0.01, m = 0.01)#
+#
+## vector of timesteps#
+times <- seq(0, 100, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(B = 100, C = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = BCMod, parms = parms))
+plot(out[, c("B", "C")], type = 'l', xlim = c(0, 100), ylim = c(0, 100))
+plot(out[, c("B", "C")], type = 'l')
+times <- seq(0, 1000, by = 0.1)
+out <- as.data.frame(lsoda(y = xstart, times = times, func = BCMod, parms = parms))
+plot(out[, c("B", "C")], type = 'l')
+quartz()
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"))
+parms <- c(r = 0.01, p = 0.01, epsilon = 0.1, m = 0.01)#
+#
+## vector of timesteps#
+times <- seq(0, 2000, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(B = 100, C = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = BCMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)#
+par(mfrow=c(1, 2))#
+## phase plane#
+plot(out[, c("B", "C")], type = 'l')#
+#
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"))
+## The parameters #
+parms <- c(r = 0.001, p = 0.01, epsilon = 0.1, m = 0.01)#
+#
+## vector of timesteps#
+times <- seq(0, 2000, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(B = 100, C = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = BCMod, parms = parms))
+par(mfrow=c(1, 2))#
+## phase plane#
+plot(out[, c("B", "C")], type = 'l')#
+#
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"))
+## The parameters #
+parms <- c(r = 0.1, p = 0.01, epsilon = 0.1, m = 0.01)#
+#
+## vector of timesteps#
+times <- seq(0, 2000, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(B = 100, C = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = BCMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)#
+par(mfrow=c(1, 2))#
+## phase plane#
+plot(out[, c("B", "C")], type = 'l')#
+#
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"))
+## The parameters #
+parms <- c(r = 0.1, p = 0.01, epsilon = 0.1, m = 0.05)#
+#
+## vector of timesteps#
+times <- seq(0, 2000, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(B = 100, C = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = BCMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)#
+par(mfrow=c(1, 2))#
+## phase plane#
+plot(out[, c("B", "C")], type = 'l')#
+#
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"), lty = 1)#
+## experiments
+par(mfrow=c(1, 2))
+plot(out[, c("B", "C")], type = 'l')
+points(out[720, c("B", "C")])
+par(mfrow=c(1, 2))#
+## phase plane#
+plot(out[, c("B", "C")], type = 'l')#
+points(out[720, c("B", "C")])#
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"), lty = 1)#
+matpoints(out[720, "time"], out[720, c("B", "C")], pch =19)
+points(out[1440, c("B", "C")])
+matpoints(out[1440, "time"], out[720, c("B", "C")], pch =19)
+matpoints(out[1440, "time"], out[1440, c("B", "C")], pch =19)
+par(mfrow=c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8))
+plot(out[, c("B", "C")], type = 'l')
+plot(out[, c("B", "C")], type = 'l', las = 1)
+points(out[1, c("B", "C")], pch = 19)
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"), lty = 1)
+matpoints(out[720, "time"], out[720, c("B", "C")], pch =19, col = c("blue", "red"))
+## install.packages("deSolve")#
+library(deSolve)#
+###
+BCMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dB <- r*B - p*B*C#
+    dC <- epsilon*p*B*C - m*C#
+    res <- list(c(dB, dC))#
+  })#
+}#
+#
+## The parameters#
+parms <- c(r = 0.1, p = 0.01, epsilon = 0.1, m = 0.05)#
+#
+## vector of timesteps#
+times <- seq(0, 1000, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(B = 100, C = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = BCMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)#
+#
+## side-by-side layout with custom margins#
+par(mfrow=c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8))#
+## phase plane#
+plot(out[, c("B", "C")], type = 'l', las = 1)#
+points(out[1, c("B", "C")], pch = 19)#
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"), lty = 1)#
+matpoints(out[720, "time"], out[720, c("B", "C")], pch =19, col = c("blue", "red"))
+## install.packages("deSolve")#
+library(deSolve)#
+###
+BCMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dB <- r*B - p*B*C#
+    dC <- epsilon*p*B*C - m*C#
+    res <- list(c(dB, dC))#
+  })#
+}#
+#
+## The parameters#
+parms <- c(r = 0.1, p = 0.01, epsilon = 0.1, m = 0.05)#
+#
+## vector of timesteps#
+times <- seq(0, 1000, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(B = 100, C = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = BCMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)#
+#
+## side-by-side layout with custom margins#
+par(mfrow=c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8))#
+## phase plane#
+plot(out[, c("B", "C")], type = 'l', las = 1)#
+points(out[720, c("B", "C")], pch = 19)#
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"), lty = 1)#
+matpoints(out[720, "time"], out[720, c("B", "C")], pch =19, col = c("blue", "red"))
+## install.packages("deSolve")#
+library(deSolve)#
+###
+BCMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dB <- r*B - p*B*C#
+    dC <- epsilon*p*B*C - m*C#
+    res <- list(c(dB, dC))#
+  })#
+}#
+#
+## The parameters#
+parms <- c(r = 0.1, p = 0.01, epsilon = 0.1, m = 0.05)#
+#
+## vector of timesteps#
+times <- seq(0, 500, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(B = 100, C = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = BCMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)#
+#
+## side-by-side layout with custom margins#
+par(mfrow=c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8))#
+## phase plane#
+plot(out[, c("B", "C")], type = 'l', las = 1)#
+points(out[720, c("B", "C")], pch = 19)#
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"), lty = 1)#
+matpoints(out[720, "time"], out[720, c("B", "C")], pch =19, col = c("blue", "red"))
+plot(out[, c("B", "C")], type = 'l', las = 1, xlim = c(0, 150), ylim = c(0, 25))
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"), lty = 1)
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"), lty = 1, las = 1, ylim = c(0, 150))
+## install.packages("deSolve")#
+library(deSolve)#
+###
+BCMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dB <- r*B - p*B*C#
+    dC <- epsilon*p*B*C - m*C#
+    res <- list(c(dB, dC))#
+  })#
+}#
+#
+## The parameters#
+parms <- c(r = 0.1, p = 0.01, epsilon = 0.1, m = 0.05)#
+#
+## vector of timesteps#
+times <- seq(0, 500, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(B = 100, C = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = BCMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)#
+#
+## side-by-side layout with custom margins#
+par(mfrow=c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8))#
+## phase plane#
+plot(out[, c("B", "C")], type = 'l', las = 1, xlim = c(0, 150), ylim = c(0, 25))#
+points(out[720, c("B", "C")], pch = 19)#
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"), lty = 1, las = 1, ylim = c(0, 150))#
+matpoints(out[720, "time"], out[720, c("B", "C")], pch =19, col = c("blue", "red"))
+abline(v = with(as.list(parms),m/(epsilon*p)))
+abline(v = c(with(as.list(parms),m/(epsilon*p)), 0))
+abline(h = c(with(as.list(parms),r/(p)), 0))
+## install.packages("deSolve")#
+library(deSolve)#
+###
+BCMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dB <- r*B - p*B*C#
+    dC <- epsilon*p*B*C - m*C#
+    res <- list(c(dB, dC))#
+  })#
+}#
+#
+## The parameters#
+parms <- c(r = 0.1, p = 0.01, epsilon = 0.1, m = 0.05)#
+#
+## vector of timesteps#
+times <- seq(0, 500, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(B = 100, C = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = BCMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)#
+#
+## side-by-side layout with custom margins#
+par(mfrow=c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8))#
+## phase plane solutions#
+plot(out[, c("B", "C")], type = 'l', las = 1, xlim = c(0, 150), ylim = c(0, 25))#
+points(out[720, c("B", "C")], pch = 19)#
+abline(v = c(with(as.list(parms),m/(epsilon*p)), 0))#
+abline(h = c(with(as.list(parms),r/(p)), 0))#
+#
+## solutions against time#
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"), lty = 1, las = 1, ylim = c(0, 150))#
+matpoints(out[720, "time"], out[720, c("B", "C")], pch =19, col = c("blue", "red"))
+abline(v = c(with(as.list(parms),m/(epsilon*p)), 0), col = c("blue", "red"))
+abline(h = c(with(as.list(parms),r/(p)), 0), col = c("red", "blue"))
+## install.packages("deSolve")#
+library(deSolve)#
+###
+BCMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dB <- r*B - p*B*C#
+    dC <- epsilon*p*B*C - m*C#
+    res <- list(c(dB, dC))#
+  })#
+}#
+#
+## The parameters#
+parms <- c(r = 0.1, p = 0.01, epsilon = 0.1, m = 0.05)#
+#
+## vector of timesteps#
+times <- seq(0, 500, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(B = 100, C = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = BCMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)#
+#
+## side-by-side layout with custom margins#
+par(mfrow=c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8))#
+## phase plane solutions#
+plot(out[, c("B", "C")], type = 'l', las = 1, xlim = c(0, 150), ylim = c(0, 25))#
+points(out[720, c("B", "C")], pch = 19)#
+abline(v = c(with(as.list(parms),m/(epsilon*p)), 0), col = c("blue", "red"))#
+abline(h = c(with(as.list(parms),r/(p)), 0), col = c("red", "blue"))#
+#
+## solutions against time#
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"), lty = 1, las = 1, ylim = c(0, 150))#
+matpoints(out[720, "time"], out[720, c("B", "C")], pch =19, col = c("blue", "red"))
+## install.packages("deSolve")#
+library(deSolve)#
+###
+BCMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dB <- r*B - p*B*C#
+    dC <- epsilon*p*B*C - m*C#
+    res <- list(c(dB, dC))#
+  })#
+}#
+#
+## The parameters#
+parms <- c(r = 0.1, p = 0.01, epsilon = 0.1, m = 0.05)#
+#
+## vector of timesteps#
+times <- seq(0, 500, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(B = 100, C = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = BCMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)#
+#
+## side-by-side layout with custom margins#
+par(mfrow=c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs = "i", yaxs = "i")#
+## phase plane solutions#
+plot(out[, c("B", "C")], type = 'l', las = 1, xlim = c(0, 150), ylim = c(0, 25))#
+points(out[720, c("B", "C")], pch = 19)#
+abline(v = c(with(as.list(parms),m/(epsilon*p)), 0), col = c("blue", "red"))#
+abline(h = c(with(as.list(parms),r/(p)), 0), col = c("red", "blue"))#
+#
+## solutions against time#
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"), lty = 1, las = 1, ylim = c(0, 150))#
+matpoints(out[720, "time"], out[720, c("B", "C")], pch =19, col = c("blue", "red"))
+## install.packages("deSolve")#
+library(deSolve)#
+###
+BCMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dB <- r*B - p*B*C#
+    dC <- epsilon*p*B*C - m*C#
+    res <- list(c(dB, dC))#
+  })#
+}#
+#
+## The parameters#
+parms <- c(r = 0.1, p = 0.01, epsilon = 0.1, m = 0.05)#
+#
+## vector of timesteps#
+times <- seq(0, 500, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(B = 100, C = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = BCMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)#
+#
+## side-by-side layout with custom margins#
+par(mfrow=c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs = "i", yaxs = "i")#
+## phase plane solutions#
+plot(out[, c("B", "C")], type = 'l', las = 1, xlim = c(0, 150), ylim = c(0, 25))#
+points(out[720, c("B", "C")], pch = 19)#
+abline(v = c(with(as.list(parms),m/(epsilon*p)), 0), col = c("blue", "red"), lwd = 2)#
+abline(h = c(with(as.list(parms),r/(p)), 0), col = c("red", "blue"), lwd = 2)#
+#
+## solutions against time#
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"), lty = 1, las = 1, ylim = c(0, 150))#
+matpoints(out[720, "time"], out[720, c("B", "C")], pch =19, col = c("blue", "red"))
+## install.packages("deSolve")#
+library(deSolve)#
+###
+BCMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dB <- r*B - p*B*C#
+    dC <- epsilon*p*B*C - m*C#
+    res <- list(c(dB, dC))#
+  })#
+}#
+#
+## The parameters#
+parms <- c(r = 0.1, p = 0.01, epsilon = 0.1, m = 0.05)#
+#
+## vector of timesteps#
+times <- seq(0, 500, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(B = 100, C = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = BCMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)#
+#
+## side-by-side layout with custom margins#
+par(mfrow=c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs = "i", yaxs = "i")#
+## phase plane solutions#
+plot(out[, c("B", "C")], type = 'l', las = 1, xlim = c(0, 150), ylim = c(0, 25))#
+points(out[720, c("B", "C")], pch = 19)#
+abline(v = c(with(as.list(parms),m/(epsilon*p)), 0), col = c("blue", "red"), lwd = 3)#
+abline(h = c(with(as.list(parms),r/(p)), 0), col = c("red", "blue"), lwd = 2)#
+#
+## solutions against time#
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"), lty = 1, las = 1, ylim = c(0, 150))#
+matpoints(out[720, "time"], out[720, c("B", "C")], pch =19, col = c("blue", "red"))
+## install.packages("deSolve")#
+library(deSolve)#
+###
+BCMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dB <- r*B - p*B*C#
+    dC <- epsilon*p*B*C - m*C#
+    res <- list(c(dB, dC))#
+  })#
+}#
+#
+## The parameters#
+parms <- c(r = 0.1, p = 0.01, epsilon = 0.1, m = 0.05)#
+#
+## vector of timesteps#
+times <- seq(0, 500, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(B = 100, C = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = BCMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)#
+#
+## side-by-side layout with custom margins#
+par(mfrow=c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs = "i", yaxs = "i")#
+## phase plane solutions#
+plot(out[, c("B", "C")], type = 'l', las = 1, xlim = c(0, 150), ylim = c(0, 25))#
+points(out[720, c("B", "C")], pch = 19)#
+abline(v = c(with(as.list(parms),m/(epsilon*p)), 0), col = c("blue", "red"), lwd = 3)#
+abline(h = c(with(as.list(parms),r/(p)), 0), col = c("red", "blue"), lwd = 3)#
+#
+## solutions against time#
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"), lty = 1, las = 1, ylim = c(0, 150))#
+matpoints(out[720, "time"], out[720, c("B", "C")], pch =19, col = c("blue", "red"))
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"), lty = 1, las = 1, ylim = c(0, 150), ylim = "Population Densities")
+## install.packages("deSolve")#
+library(deSolve)#
+###
+BCMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dB <- r*B - p*B*C#
+    dC <- epsilon*p*B*C - m*C#
+    res <- list(c(dB, dC))#
+  })#
+}#
+#
+## The parameters#
+parms <- c(r = 0.1, p = 0.01, epsilon = 0.1, m = 0.05)#
+#
+## vector of timesteps#
+times <- seq(0, 500, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(B = 100, C = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = BCMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)#
+#
+## side-by-side layout with custom margins and tight axes#
+par(mfrow=c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs = "i", yaxs = "i")#
+## phase plane solutions#
+plot(out[, c("B", "C")], type = 'l', las = 1, xlim = c(0, 150), ylim = c(0, 25))#
+## highlight a random point to help with interpretation#
+points(out[720, c("B", "C")], pch = 19)#
+## add nullclines using parameter values#
+## arrows are not worth coding right now since they would need to be automated or done manually#
+## there are some other tools for this, but its not a major concern#
+abline(v = c(with(as.list(parms),m/(epsilon*p)), 0), col = c("blue", "red"), lwd = 3)#
+abline(h = c(with(as.list(parms),r/(p)), 0), col = c("red", "blue"), lwd = 3)#
+#
+## solutions against time#
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"), lty = 1, las = 1, ylim = c(0, 150), ylim = "Population Densities")#
+matpoints(out[720, "time"], out[720, c("B", "C")], pch =19, col = c("blue", "red"))
+## install.packages("deSolve")#
+library(deSolve)#
+###
+BCMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dB <- r*B - p*B*C#
+    dC <- epsilon*p*B*C - m*C#
+    res <- list(c(dB, dC))#
+  })#
+}#
+#
+## The parameters#
+parms <- c(r = 0.1, p = 0.01, epsilon = 0.1, m = 0.05)#
+#
+## vector of timesteps#
+times <- seq(0, 500, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(B = 100, C = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = BCMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)#
+#
+## side-by-side layout with custom margins and tight axes#
+par(mfrow=c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs = "i", yaxs = "i")#
+## phase plane solutions#
+plot(out[, c("B", "C")], type = 'l', las = 1, xlim = c(0, 150), ylim = c(0, 25))#
+## highlight a random point to help with interpretation#
+points(out[720, c("B", "C")], pch = 19)#
+## add nullclines using parameter values#
+## arrows are not worth coding right now since they would need to be automated or done manually#
+## there are some other tools for this, but its not a major concern#
+abline(v = c(with(as.list(parms),m/(epsilon*p)), 0), col = c("blue", "red"), lwd = 3)#
+abline(h = c(with(as.list(parms),r/(p)), 0), col = c("red", "blue"), lwd = 3)#
+#
+## solutions against time#
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"), lty = 1, las = 1, ylim = c(0, 150), ylab = "Population Densities")#
+matpoints(out[720, "time"], out[720, c("B", "C")], pch =19, col = c("blue", "red"))
+## install.packages("deSolve")#
+library(deSolve)#
+###
+BCMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dB <- r*B - p*B*C#
+    dC <- epsilon*p*B*C - m*C#
+    res <- list(c(dB, dC))#
+  })#
+}#
+#
+## The parameters#
+parms <- c(r = 0.1, p = 0.01, epsilon = 0.1, m = 0.05)#
+#
+## vector of timesteps#
+times <- seq(0, 500, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(B = 100, C = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = BCMod, parms = parms))#
+#
+## inspect#
+head(out)#
+tail(out)#
+#
+## side-by-side layout with custom margins and tight axes#
+par(mfrow=c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs = "i", yaxs = "i")#
+## phase plane solutions#
+plot(out[, c("B", "C")], type = 'l', las = 1, xlim = c(0, 150), ylim = c(0, 25), xlab = "Bird density", ylab = "Cat density")#
+## highlight a random point to help with interpretation#
+points(out[720, c("B", "C")], pch = 19)#
+## add nullclines using parameter values#
+## arrows are not worth coding right now since they would need to be automated or done manually#
+## there are some other tools for this, but its not a major concern#
+abline(v = c(with(as.list(parms),m/(epsilon*p)), 0), col = c("blue", "red"), lwd = 3)#
+abline(h = c(with(as.list(parms),r/(p)), 0), col = c("red", "blue"), lwd = 3)#
+#
+## solutions against time#
+matplot(out$time, out[, c("B", "C")], type='l', col = c("blue", "red"), lty = 1, las = 1, ylim = c(0, 150), ylab = "Population Densities")#
+matpoints(out[720, "time"], out[720, c("B", "C")], pch =19, col = c("blue", "red"))
+## install.packages("deSolve")#
+library(deSolve)#
+###
+SIMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dS <- gamma*I - beta*S*I#
+    dI <- beta*S*I - gamma*I#
+    res <- list(c(dS, dI))#
+  })#
+}#
+#
+## The parameters #
+parms <- c(beta = 0.01, gamma = 1/14)#
+#
+## vector of timesteps#
+times <- seq(0, 500, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(S = 95, I = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))#
+#
+## phase plane#
+plot(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100))#
+points(xstart["S"], xstart["I"])#
+abline(v = parms['gamma']/parms['beta'], col="gray")
+plot(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100), las = 1)
+abline(v = with(as.list(parms), gamma/beta)), col="gray")
+abline(v = with(as.list(parms), gamma/beta), col="gray")
+abline(h = c(with(as.list(parms), gamma/beta), 0), col=c("red", "gray"))
+abline(v = c(with(as.list(parms), gamma/beta), 0), col=c("gray", "red"))
+abline(v = with(as.list(parms), c(gamma/beta, gamma/beta)), col=c("gray", "red"))
+abline(v = with(as.list(parms), c(gamma/beta, gamma/beta)), col=c("gray", "red"), lty = c(2, 3))
+abline(v = with(as.list(parms), c(gamma/beta, gamma/beta)), col=c("gray", "red"), lty = c(2, 3), lwd = 3)
+abline(h = c(0, 0), col=c("red", "gray"), lty = c(2, 3), lwd = 3)
+matplot(out$time, out[, c("S", "I")], type='l', ylim = c(0, 100))
+matplot(out$time, out[, c("S", "I")], type='l', ylim = c(0, 100), lty = 1, col = c("blue", "red"))
+matplot(out$time, out[, c("S", "I")], type='l', ylim = c(0, 100), lty = 1, col = c("blue", "red"), las = 1)
+## install.packages("deSolve")#
+library(deSolve)#
+###
+SIMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dS <- gamma*I - beta*S*I#
+    dI <- beta*S*I - gamma*I#
+    res <- list(c(dS, dI))#
+  })#
+}#
+#
+## The parameters #
+parms <- c(beta = 0.01, gamma = 1/14)#
+#
+## vector of timesteps#
+times <- seq(0, 500, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(S = 95, I = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))#
+## nice plot layout#
+par(mfrow = c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs 'i', yaxs = 'i')#
+## phase plane#
+plot(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100), las = 1)#
+## highlight initial point#
+points(xstart["S"], xstart["I"], pch = 19)#
+## add nullcline#
+abline(v = with(as.list(parms), c(gamma/beta, gamma/beta)), col=c("gray", "red"), lty = c(2, 3), lwd = 3)#
+abline(h = c(0, 0), col=c("red", "gray"), lty = c(2, 3), lwd = 3)#
+#
+matplot(out$time, out[, c("S", "I")], type='l', ylim = c(0, 100), lty = 1, col = c("blue", "red"), las = 1)
+par(mfrow = c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs 'i', yaxs = 'i')
+plot(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100), las = 1)
+par(mfrow = c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs 'i', yaxs = 'i')
+par(mfrow = c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs = 'i', yaxs = 'i')
+## install.packages("deSolve")#
+library(deSolve)#
+###
+SIMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dS <- gamma*I - beta*S*I#
+    dI <- beta*S*I - gamma*I#
+    res <- list(c(dS, dI))#
+  })#
+}#
+#
+## The parameters #
+parms <- c(beta = 0.01, gamma = 1/14)#
+#
+## vector of timesteps#
+times <- seq(0, 500, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(S = 95, I = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))#
+## nice plot layout#
+par(mfrow = c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs = 'i', yaxs = 'i')#
+## phase plane#
+plot(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100), las = 1)#
+## highlight initial point#
+points(xstart["S"], xstart["I"], pch = 19)#
+## add nullcline#
+abline(v = with(as.list(parms), c(gamma/beta, gamma/beta)), col=c("gray", "red"), lty = c(2, 3), lwd = 3)#
+abline(h = c(0, 0), col=c("red", "gray"), lty = c(2, 3), lwd = 3)#
+#
+matplot(out$time, out[, c("S", "I")], type='l', ylim = c(0, 100), lty = 1, col = c("blue", "red"), las = 1)
+## install.packages("deSolve")#
+library(deSolve)#
+###
+SIMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dS <- gamma*I - beta*S*I#
+    dI <- beta*S*I - gamma*I#
+    res <- list(c(dS, dI))#
+  })#
+}#
+#
+## The parameters #
+parms <- c(beta = 0.01, gamma = 1/14)#
+#
+## vector of timesteps#
+times <- seq(0, 500, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(S = 95, I = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))#
+## nice plot layout#
+par(mfrow = c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs = 'i', yaxs = 'i')#
+## phase plane#
+plot(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100), las = 1)#
+## highlight initial point#
+points(xstart["S"], xstart["I"], pch = 19)#
+## add nullcline#
+abline(v = with(as.list(parms), c(gamma/beta, gamma/beta)), col=c("gray", "red"), lty = c(2, 3), lwd = 3)#
+abline(h = c(0, 0), col=c("red", "gray"), lty = c(2, 3), lwd = 3)#
+#
+matplot(out$time, out[, c("S", "I")], type='l', ylim = c(0, 100), lty = 1, col = c("blue", "red"), las = 1, ylab = "Densities")
+## install.packages("deSolve")#
+library(deSolve)#
+###
+SIMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dS <- gamma*I - beta*S*I#
+    dI <- beta*S*I - gamma*I#
+    res <- list(c(dS, dI))#
+  })#
+}#
+#
+## The parameters #
+parms <- c(beta = 0.01, gamma = 1/14)#
+#
+## vector of timesteps#
+times <- seq(0, 50, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(S = 95, I = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))#
+## nice plot layout#
+par(mfrow = c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs = 'i', yaxs = 'i')#
+## phase plane#
+plot(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100), las = 1)#
+## highlight initial point#
+points(xstart["S"], xstart["I"], pch = 19)#
+## add nullcline#
+abline(v = with(as.list(parms), c(gamma/beta, gamma/beta)), col=c("gray", "red"), lty = c(2, 3), lwd = 3)#
+abline(h = c(0, 0), col=c("red", "gray"), lty = c(2, 3), lwd = 3)#
+#
+matplot(out$time, out[, c("S", "I")], type='l', ylim = c(0, 100), lty = 1, col = c("blue", "red"), las = 1, ylab = "Densities")
+## install.packages("deSolve")#
+library(deSolve)#
+###
+SIMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dS <- gamma*I - beta*S*I#
+    dI <- beta*S*I - gamma*I#
+    res <- list(c(dS, dI))#
+  })#
+}#
+#
+## The parameters #
+parms <- c(beta = 0.01, gamma = 1/14)#
+#
+## vector of timesteps#
+times <- seq(0, 50, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(S = 95, I = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))#
+## nice plot layout#
+par(mfrow = c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs = 'i', yaxs = 'i')#
+## phase plane#
+plot(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100), las = 1)#
+## highlight initial point#
+points(xstart["S"], xstart["I"], pch = 19)#
+## add nullcline#
+abline(v = with(as.list(parms), c(gamma/beta, gamma/beta)), col=c("gray", "red"), lty = c(2, 3), lwd = 3)#
+abline(h = c(0, 0), col=c("red", "gray"), lty = c(2, 3), lwd = 3)#
+#
+matplot(out$time, out[, c("S", "I")], type='l', ylim = c(0, 100), lty = 1, col = c("blue", "red"), las = 1, xlab = "time", ylab = "Densities")
+matpoints(0, xstart[c("S","I")], pch = 19)
+xstart[c("S","I")]
+matpoints(c(0,0), xstart[c("S","I")], pch = 19)
+points(c(0,0), xstart[c("S","I")], pch = 19, col = c("blue", "red"))
+## install.packages("deSolve")#
+library(deSolve)#
+###
+SIMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dS <- gamma*I - beta*S*I#
+    dI <- beta*S*I - gamma*I#
+    res <- list(c(dS, dI))#
+  })#
+}#
+#
+## The parameters #
+parms <- c(beta = 0.001, gamma = 1/14)#
+#
+## vector of timesteps#
+times <- seq(0, 50, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(S = 95, I = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))#
+## nice plot layout#
+par(mfrow = c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs = 'i', yaxs = 'i')#
+## phase plane#
+plot(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100), las = 1)#
+## highlight initial point#
+points(xstart["S"], xstart["I"], pch = 19)#
+## add nullcline#
+abline(v = with(as.list(parms), c(gamma/beta, gamma/beta)), col=c("gray", "red"), lty = c(2, 3), lwd = 3)#
+abline(h = c(0, 0), col=c("red", "gray"), lty = c(2, 3), lwd = 3)#
+#
+matplot(out$time, out[, c("S", "I")], type='l', ylim = c(0, 100), lty = 1, col = c("blue", "red"), las = 1, xlab = "time", ylab = "Densities")#
+points(c(0,0), xstart[c("S","I")], pch = 19, col = c("blue", "red"))
+## install.packages("deSolve")#
+library(deSolve)#
+###
+SIMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dS <- gamma*I - beta*S*I#
+    dI <- beta*S*I - gamma*I#
+    res <- list(c(dS, dI))#
+  })#
+}#
+#
+## The parameters #
+parms <- c(beta = 0.005, gamma = 1/14)#
+#
+## vector of timesteps#
+times <- seq(0, 50, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(S = 95, I = 5)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))#
+## nice plot layout#
+par(mfrow = c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs = 'i', yaxs = 'i')#
+## phase plane#
+plot(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100), las = 1)#
+## highlight initial point#
+points(xstart["S"], xstart["I"], pch = 19)#
+## add nullcline#
+abline(v = with(as.list(parms), c(gamma/beta, gamma/beta)), col=c("gray", "red"), lty = c(2, 3), lwd = 3)#
+abline(h = c(0, 0), col=c("red", "gray"), lty = c(2, 3), lwd = 3)#
+#
+matplot(out$time, out[, c("S", "I")], type='l', ylim = c(0, 100), lty = 1, col = c("blue", "red"), las = 1, xlab = "time", ylab = "Densities")#
+points(c(0,0), xstart[c("S","I")], pch = 19, col = c("blue", "red"))
+## install.packages("deSolve")#
+library(deSolve)#
+###
+SIMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dS <- gamma*I - beta*S*I#
+    dI <- beta*S*I - gamma*I#
+    res <- list(c(dS, dI))#
+  })#
+}#
+#
+## The parameters #
+parms <- c(beta = 0.005, gamma = 1/14)#
+#
+## vector of timesteps#
+times <- seq(0, 50, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(S = 95, I = 5)#
+xstart <- c(S = 10, I = 50)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))#
+## nice plot layout#
+par(mfrow = c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs = 'i', yaxs = 'i')#
+## phase plane#
+plot(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100), las = 1)#
+## highlight initial point#
+points(xstart["S"], xstart["I"], pch = 19)#
+## add nullcline#
+abline(v = with(as.list(parms), c(gamma/beta, gamma/beta)), col=c("gray", "red"), lty = c(2, 3), lwd = 3)#
+abline(h = c(0, 0), col=c("red", "gray"), lty = c(2, 3), lwd = 3)#
+#
+matplot(out$time, out[, c("S", "I")], type='l', ylim = c(0, 100), lty = 1, col = c("blue", "red"), las = 1, xlab = "time", ylab = "Densities")#
+points(c(0,0), xstart[c("S","I")], pch = 19, col = c("blue", "red"))
+## install.packages("deSolve")#
+library(deSolve)#
+###
+SIMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dS <- gamma*I - beta*S*I#
+    dI <- beta*S*I - gamma*I#
+    res <- list(c(dS, dI))#
+  })#
+}#
+#
+## The parameters #
+parms <- c(beta = 0.005, gamma = 1/14)#
+#
+## vector of timesteps#
+times <- seq(0, 50, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(S = 95, I = 5)#
+## xstart <- c(S = 10, I = 50)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))#
+## nice plot layout#
+par(mfrow = c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs = 'i', yaxs = 'i')#
+## phase plane#
+plot(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100), las = 1)#
+## highlight initial point#
+points(xstart["S"], xstart["I"], pch = 19)#
+## add nullcline#
+abline(v = with(as.list(parms), c(gamma/beta, gamma/beta)), col=c("gray", "red"), lty = c(2, 3), lwd = 3)#
+abline(h = c(0, 0), col=c("red", "gray"), lty = c(2, 3), lwd = 3)#
+#
+matplot(out$time, out[, c("S", "I")], type='l', ylim = c(0, 100), lty = 1, col = c("blue", "red"), las = 1, xlab = "time", ylab = "Densities")#
+points(c(0,0), xstart[c("S","I")], pch = 19, col = c("blue", "red"))
+xstart <- c(S = 90, I = 10)
+## install.packages("deSolve")#
+library(deSolve)#
+###
+SIMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dS <- gamma*I - beta*S*I#
+    dI <- beta*S*I - gamma*I#
+    res <- list(c(dS, dI))#
+  })#
+}#
+#
+## The parameters #
+parms <- c(beta = 0.005, gamma = 1/14)#
+#
+## vector of timesteps#
+times <- seq(0, 50, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(S = 90, I = 10)#
+## xstart <- c(S = 10, I = 50)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))#
+## nice plot layout#
+par(mfrow = c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs = 'i', yaxs = 'i')#
+## phase plane#
+plot(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100), las = 1)#
+## highlight initial point#
+points(xstart["S"], xstart["I"], pch = 19)#
+## add nullcline#
+abline(v = with(as.list(parms), c(gamma/beta, gamma/beta)), col=c("gray", "red"), lty = c(2, 3), lwd = 3)#
+abline(h = c(0, 0), col=c("red", "gray"), lty = c(2, 3), lwd = 3)#
+#
+matplot(out$time, out[, c("S", "I")], type='l', ylim = c(0, 100), lty = 1, col = c("blue", "red"), las = 1, xlab = "time", ylab = "Densities")#
+points(c(0,0), xstart[c("S","I")], pch = 19, col = c("blue", "red"))
+## install.packages("deSolve")#
+library(deSolve)#
+###
+SIMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dS <- gamma*I - beta*S*I#
+    dI <- beta*S*I - gamma*I#
+    res <- list(c(dS, dI))#
+  })#
+}#
+#
+## The parameters #
+parms <- c(beta = 0.005, gamma = 1/14)#
+#
+## vector of timesteps#
+times <- seq(0, 50, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(S = 90, I = 10)#
+## xstart <- c(S = 60, I = 20)#
+## xstart <- c(S = 10, I = 50)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))#
+## nice plot layout#
+par(mfrow = c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs = 'i', yaxs = 'i')#
+## phase plane#
+plot(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100), las = 1)#
+## highlight initial point#
+points(xstart["S"], xstart["I"], pch = 19)#
+## add nullcline#
+abline(v = with(as.list(parms), c(gamma/beta, gamma/beta)), col=c("gray", "red"), lty = c(2, 3), lwd = 3)#
+abline(h = c(0, 0), col=c("red", "gray"), lty = c(2, 3), lwd = 3)#
+#
+matplot(out$time, out[, c("S", "I")], type='l', ylim = c(0, 100), lty = 1, col = c("blue", "red"), las = 1, xlab = "time", ylab = "Densities")#
+points(c(0,0), xstart[c("S","I")], pch = 19, col = c("blue", "red"))
+## install.packages("deSolve")#
+library(deSolve)#
+###
+SIMod <- function(t, x, parms)  {#
+  with(as.list(c(parms, x)), {#
+	 ## enter DE#
+    dS <- gamma*I - beta*S*I#
+    dI <- beta*S*I - gamma*I#
+    res <- list(c(dS, dI))#
+  })#
+}#
+#
+## The parameters #
+parms <- c(beta = 0.005, gamma = 1/14)#
+#
+## vector of timesteps#
+times <- seq(0, 50, by = 0.1)#
+#
+## Start values for steady state#
+xstart <- c(S = 90, I = 10)#
+ xstart <- c(S = 60, I = 20)#
+## xstart <- c(S = 10, I = 50)#
+#
+## Solve model#
+out <- as.data.frame(lsoda(y = xstart, times = times, func = SIMod, parms = parms))#
+## nice plot layout#
+par(mfrow = c(1, 2), mar = c(4.1, 5.1, 0.8, 0.8), xaxs = 'i', yaxs = 'i')#
+## phase plane#
+plot(out[, c("S", "I")], type = 'l', xlim = c(0, 100), ylim = c(0, 100), las = 1)#
+## highlight initial point#
+points(xstart["S"], xstart["I"], pch = 19)#
+## add nullcline#
+abline(v = with(as.list(parms), c(gamma/beta, gamma/beta)), col=c("gray", "red"), lty = c(2, 3), lwd = 3)#
+abline(h = c(0, 0), col=c("red", "gray"), lty = c(2, 3), lwd = 3)#
+#
+matplot(out$time, out[, c("S", "I")], type='l', ylim = c(0, 100), lty = 1, col = c("blue", "red"), las = 1, xlab = "time", ylab = "Densities")#
+points(c(0,0), xstart[c("S","I")], pch = 19, col = c("blue", "red"))
+library(deSolve)
+?lsoda
+2 + 2
+cos(5)
+log(10)
+log10(10)
+log(10, base = 10)
+ln(10)
+e^7
+exp(7)
+?cos
+?log
+1/3 - 1/4
 1/12
-1/3-1/4-1/12
-2^(-52)
-2^(-53)
-2^(-500)
-library(stringr)#
-dat <- read.delim("excerpt-salary-21.csv", sep = ',')#
-dat <- dat[ , 1:17]#
-dim(dat)#
-table(dat$country)#
-#
-dat[70, ]#
-#
-dat <- dat[-70, ]#
-dim(dat)#
-table(dat$country)#
-#
-dat$country <- toupper(dat$country)#
-table(dat$country)#
-#
-dat[dat$country == "UNITED STATEES", "country"] <- "UNITED STATES"#
-dat[dat$country == "UNITEED STATES", "country"] <- "UNITED STATES"#
-dat[dat$country == "UNITES STATES", "country"] <- "UNITED STATES"#
-table(dat$country)#
-dat[dat$country %in% c("US", "US ", "U.S.A", "U.S.A."), "country"] <- "UNITED STATES"#
-table(dat$country)#
-#
-head(dat)#
-salary <- dat$salary#
-salary <- gsub(",", "", salary)#
-dat$salary <- as.numeric(salary)#
-dat$salary#
-#
-head(dat)#
-dat$benefits <- as.numeric(dat$benefits)#
-head(dat)#
-#
-country <- dat$country#
-table(country)#
-country <- gsub("[.]", "", country)#
-country <- sapply(country, str_trim)#
-#
-country[country %in% c("THE UNITED STATES", "UNITED SATES", "UNITED STATES OF AMERICA", "UNITED STATEW", "US", "USA")] <- "UNITED STATES"#
-table(country)#
-#
-country[country %in% c("ENGLAND", "ENGLAND, UK", "ENGLAND/UK", "UK", "UNITED KINDOM", "UNITED KINGDOM", "UNITED KINGDOM (ENGLAND)", "WALES (UNITED KINGDOM)")] <- "UNITED KINGDOM/UK"#
-country[country =="THE NETHERLANDS"] <- "NETHERLANDS"#
-country[country %in% c("FROM NEW ZEALAND BUT ON PROJECTS ACROSS APAC", "", "USD")] <- NA#
-dat$country <- as.factor(country)#
-#
-head(dat)#
-state <- dat$us_state#
-table(dat$us_state)#
-state[grepl(",",state)] <- 'ZZ_Multiple'#
-state[state==""]<- NA#
-dat$us_state <- as.factor(state)#
-table(dat$us_state)#
-#
-head(dat)#
-(nms <- names(table(dat$currency)))#
-dat[dat$currency=="", "currency"] <- NA#
-dat[dat$currency==nms[3],]#
-dat <- dat[-200, ]#
-dat$currency <- as.factor(dat$currency)#
-head(dat)#
-#
-table(dat$age)#
-dat[dat$age =="", "age"] <- NA#
-nms <- names(table(dat$age))#
-dat$age <- ordered(dat$age, levels = c(nms[c(7, 1:6)]))#
-summary(dat)#
-#
-table(dat$industry)#
-dat$industry <- gsub("&", "and", dat$industry)#
-#
-dat$industry <- tolower(dat$industry)#
-dat$industry <- sapply(dat$industry, str_trim)#
-dat$industry <- as.factor(dat$industry)#
-table(dat$title)#
-dat$title <- gsub("[.]", "", dat$title)#
-dat$title <- toupper(dat$title)#
-dat$title <- sapply(dat$title, str_trim)#
-dat$title <- as.factor(dat$title)#
-summary(dat)#
-#
-table(dat$currency.other)#
-#
-dat[dat$currency.other %in% c("", "None"), "currency"] <- NA#
-dat$currency.other <- as.factor(dat$currency.other)#
-summary(dat)#
-table(dat$city)#
-dat$city <- toupper(dat$city)#
-dat$city <- sapply(dat$city, str_trim)#
-dat$city <- gsub("[.]", "", dat$city)#
-dat$city <- as.factor(dat$city)#
-#
-table(dat$exp_total)#
-(nms <- names(table(dat$exp_total)))#
-dat[dat$exp_total == "", "exp_total"] <- NA#
-dat$exp_total <- factor(dat$exp_total, levels = nms[c(2, 4, 8, 9, 3, 5, 6, 7)])#
-summary(dat)#
-#
-table(dat$exp_field)#
-(nms <- names(table(dat$exp_field)))#
-dat$exp_field <- factor(dat$exp_field, levels = nms[c(1, 3, 7, 8, 2, 4, 5, 6)])#
-summary(dat)#
-#
-table(dat$education)#
-dat[dat$education == "", "education"] <- NA#
-(nms <- names(table(dat$education)))#
-dat$education <- factor(dat$education, levels = nms[c(2, 6, 1, 3, 5, 4)])#
-summary(dat)#
-#
-table(dat$gender)#
-dat[dat$gender == "Other or prefer not to answer" & !is.na(dat$gender), "gender"] <- "Not reported"#
-dat$gender <- factor(dat$gender)#
-summary(dat)#
-#
-table(dat$race)#
-dat$race <- factor(dat$race)#
-#
-head(dat)#
-summary(dat)#
-#
-write.table(dat, "clean-salary-21.csv", sep=',', row.names = F, col.names = T)#
-#
+(1/3 - 1/4) - 1/12
+setwd("~/Dropbox/uco/fa23/TPMS/r")
+dat <- read.delim("clean-salary-21.csv", sep = ',')
+head(dat)
+dat <- read.delim("clean-salary-21.csv" sep = ',')
+dat <- read.delim("clean-salary-21.csv"; sep = ',')
+dat <- read.delim("clean-salary-21.csv", sep = ',')
+head(dat)
+head(dat)
+names(dat)
+table(dat$age)
+tab <- table(dat$age)
+tab
+plot(tab)
+plot(tab, lwd = 2)
+plot(tab, lwd = 2, xlab = "Age group", ylab = "Frequency")
+plot(tab, lwd = 2, xlab = "Age group", ylab = "Frequency", las = 1, ylim = c(0, 500))
+c(0, 500)
+c(0, "cat", 500, "chicken")
+ylims <- c(0, 500)
+unk <- c(0, "cat", 500, "chicken")
+unk <- c(0, "cat", 500, "chicken")
+(unk <- c(0, "cat", 500, "chicken"))
+plot(tab, lwd = 2, xlab = "Age group", ylab = "Frequency", las = 1, ylim = c(0, 500), main = "Workforce Distribition")
+plot(tab, lwd = 2, xlab = "Age group", ylab = "Frequency", las = 1, ylim = c(0, 500))
+mtext("Workforce Distribution", 3)
+mtext("Workforce Distribution", side = 3)
+mtext("Workforce Distribution", side = 3, cex = 1.5)
+mtext("Workforce Distribution", side = 3, cex = 1.5, font = 2)
+plot(tab, lwd = 2, xlab = "Age group", ylab = "Frequency", las = 1, ylim = c(0, 500))#
+## for mtext, side = 3 is 'top'#
+## cex is "character expansion factor"#
+## font = 2 gives bold#
+mtext("Workforce Distribution", side = 3, cex = 1.5, font = 2)
+box()
+mtext("Workforce Distribution", side = 3, cex = 1.5, font = 2, line = 2)
+mtext("Workforce Distribution", side = 3, cex = 1.5, font = 2, line = 1)
+plot(tab, lwd = 2, xlab = "Age group", ylab = "Frequency", las = 1, ylim = c(0, 500))#
+## for mtext, side = 3 is 'top'#
+## cex is "character expansion factor"#
+## font = 2 gives bold#
+mtext("Workforce Distribution", side = 3, cex = 1.5, font = 2, line = 1)#
+box()
+gridlines()
+grid()
+grid(nx=0)
+plot(tab, lwd = 2, xlab = "Age group", ylab = "Frequency", las = 1, ylim = c(0, 500))#
+## for mtext, side = 3 is 'top'#
+## cex is "character expansion factor"#
+## font = 2 gives bold#
+## line counts into the margin#
+mtext("Workforce Distribution", side = 3, cex = 1.5, font = 2, line = 1)#
+box()#
+grid(nx=0)
+grid()
+names(dat)
+names(dat)
+head(dat)
+(tab2 <- table(dat[ , c("age", "education")]))
+(tab2 <- table(dat[ , c("age", education)]))
+(tab2 <- table(dat[ , c("age", "education")]))
+head(dat)
+(tab2 <- table(dat[ , c("exp_total", "exp_field")]))
+(tab2 <- table(dat[ , c("age", "education")]))
+(tab3 <- table(dat[ , c("exp_total", "exp_field")]))
 plot(benefits ~ salary, dat)
-setwd("~/Dropbox/uco/fa23/TPMS/R/")
-setwd("~/Dropbox/uco/fa23/TPMS/R/")#
-library(stringr)#
-dat <- read.delim("excerpt-salary-21.csv", sep = ',')#
-dat <- dat[ , 1:17]#
-dim(dat)#
-table(dat$country)#
-#
-dat[70, ]#
-#
-dat <- dat[-70, ]#
-dim(dat)#
-table(dat$country)#
-#
-dat$country <- toupper(dat$country)#
-table(dat$country)#
-#
-dat[dat$country == "UNITED STATEES", "country"] <- "UNITED STATES"#
-dat[dat$country == "UNITEED STATES", "country"] <- "UNITED STATES"#
-dat[dat$country == "UNITES STATES", "country"] <- "UNITED STATES"#
-table(dat$country)#
-dat[dat$country %in% c("US", "US ", "U.S.A", "U.S.A."), "country"] <- "UNITED STATES"#
-table(dat$country)#
-#
-head(dat)#
-salary <- dat$salary#
-salary <- gsub(",", "", salary)#
-dat$salary <- as.numeric(salary)#
-dat$salary#
-#
-head(dat)#
-dat$benefits <- as.numeric(dat$benefits)#
-head(dat)#
-#
-country <- dat$country#
-table(country)#
-country <- gsub("[.]", "", country)#
-country <- sapply(country, str_trim)#
-#
-country[country %in% c("THE UNITED STATES", "UNITED SATES", "UNITED STATES OF AMERICA", "UNITED STATEW", "US", "USA")] <- "UNITED STATES"#
-table(country)#
-#
-country[country %in% c("ENGLAND", "ENGLAND, UK", "ENGLAND/UK", "UK", "UNITED KINDOM", "UNITED KINGDOM", "UNITED KINGDOM (ENGLAND)", "WALES (UNITED KINGDOM)")] <- "UNITED KINGDOM/UK"#
-country[country =="THE NETHERLANDS"] <- "NETHERLANDS"#
-country[country %in% c("FROM NEW ZEALAND BUT ON PROJECTS ACROSS APAC", "", "USD")] <- NA#
-dat$country <- as.factor(country)#
-#
-head(dat)#
-state <- dat$us_state#
-table(dat$us_state)#
-state[grepl(",",state)] <- 'ZZ_Multiple'#
-state[state==""]<- NA#
-dat$us_state <- as.factor(state)#
-table(dat$us_state)#
-#
-head(dat)#
-(nms <- names(table(dat$currency)))#
-dat[dat$currency=="", "currency"] <- NA#
-dat[dat$currency==nms[3],]#
-dat <- dat[-200, ]#
-dat$currency <- as.factor(dat$currency)#
-head(dat)#
-#
-table(dat$age)#
-dat[dat$age =="", "age"] <- NA#
-nms <- names(table(dat$age))#
-dat$age <- ordered(dat$age, levels = c(nms[c(7, 1:6)]))#
-summary(dat)#
-#
-table(dat$industry)#
-dat$industry <- gsub("&", "and", dat$industry)#
-#
-dat$industry <- tolower(dat$industry)#
-dat$industry <- sapply(dat$industry, str_trim)#
-dat$industry <- as.factor(dat$industry)#
-table(dat$title)#
-dat$title <- gsub("[.]", "", dat$title)#
-dat$title <- toupper(dat$title)#
-dat$title <- sapply(dat$title, str_trim)#
-dat$title <- as.factor(dat$title)#
-summary(dat)#
-#
-table(dat$currency.other)#
-#
-dat[dat$currency.other %in% c("", "None"), "currency"] <- NA#
-dat$currency.other <- as.factor(dat$currency.other)#
-summary(dat)#
-table(dat$city)#
-dat$city <- toupper(dat$city)#
-dat$city <- sapply(dat$city, str_trim)#
-dat$city <- gsub("[.]", "", dat$city)#
-dat$city <- as.factor(dat$city)#
-#
-table(dat$exp_total)#
-(nms <- names(table(dat$exp_total)))#
-dat[dat$exp_total == "", "exp_total"] <- NA#
-dat$exp_total <- factor(dat$exp_total, levels = nms[c(2, 4, 8, 9, 3, 5, 6, 7)])#
-summary(dat)#
-#
-table(dat$exp_field)#
-(nms <- names(table(dat$exp_field)))#
-dat$exp_field <- factor(dat$exp_field, levels = nms[c(1, 3, 7, 8, 2, 4, 5, 6)])#
-summary(dat)#
-#
-table(dat$education)#
-dat[dat$education == "", "education"] <- NA#
-(nms <- names(table(dat$education)))#
-dat$education <- factor(dat$education, levels = nms[c(2, 6, 1, 3, 5, 4)])#
-summary(dat)#
-#
-table(dat$gender)#
-dat[dat$gender == "Other or prefer not to answer" & !is.na(dat$gender), "gender"] <- "Not reported"#
-dat$gender <- factor(dat$gender)#
-summary(dat)#
-#
-table(dat$race)#
-dat$race <- factor(dat$race)#
-#
-head(dat)#
-summary(dat)#
-#
-write.table(dat, "clean-salary-21.csv", sep=',', row.names = F, col.names = T)#
-#
+par(mar = c(4.1, 5.1, 0.8, 0.8))
 plot(benefits ~ salary, dat)
+plot(benefits ~ salary, dat)
+par(mar = c(4.1, 5.1, 0.8, 0.8))
+plot(benefits ~ salary, dat)
+par(mar = c(4.1, 5.1, 0.8, 0.8), bg = "yellow")
+plot(benefits ~ salary, dat)
+par(mar = c(4.1, 5.1, 0.8, 0.8), bg = "yellow10")
+par(mar = c(4.1, 5.1, 0.8, 0.8), bg = "cornsilk")
+plot(benefits ~ salary, dat)
+par(mar = c(4.1, 5.1, 0.8, 0.8), bg = "white")
+plot(benefits ~ salary, dat)
+plot(dat[, c("salary", "benefits")])
+plot(dat$salary, dat$benefits)
+head(dat)
+table(dat$gender)
+plot(benefits ~ salary, dat, subset = gender == "Man", pch = 19, col = "gray")
+points(benefits ~ salary, dat, subset = gender == "Woman", pch = 19, col = "black")
+points(benefits ~ salary, dat, subset = gender == "Non-binary", pch = 19, col = "blue")
+legend("topleft", c("Man", "Woman", "Non-binary"), pch = 19, col = c("gray", "black", "blue"))
+## axes are ugly, that's a later problem#
+plot(benefits ~ salary, dat, subset = gender == "Man", pch = 19, cex = 0.5, col = "gray")#
+points(benefits ~ salary, dat, subset = gender == "Woman", pch = 19, cex = 0.5, col = "black")#
+points(benefits ~ salary, dat, subset = gender == "Non-binary", pch = 19, cex = 0.5, col = "blue")#
+legend("topleft", c("Man", "Woman", "Non-binary"), pch = 19, col = c("gray", "black", "blue"))
+plot(benefits ~ salary, dat, subset = gender == "Woman", pch = 19, cex = 0.5, col = "black")
+points(benefits ~ salary, dat, subset = gender == "Man", pch = 19, cex = 0.5, col = "gray")
+points(benefits ~ salary, dat, subset = gender == "Non-binary", pch = 19, cex = 0.5, col = "blue")
+legend("topleft", c("Man", "Woman", "Non-binary"), pch = 19, col = c("gray", "black", "blue"))
+plot(benefits ~ salary, dat, subset = gender == "Man", pch = 19, cex = 0.5, col = "gray")
+points(benefits ~ salary, dat, subset = gender == "Woman", pch = 19, cex = 0.5, col = "black")
+points(benefits ~ salary, dat, subset = gender == "Non-binary", pch = 19, cex = 0.5, col = "blue")
+legend("topleft", c("Man", "Woman", "Non-binary"), pch = 19, col = c("gray", "black", "blue"))
+legend("topleft", c("Man", "Woman", "Nobinary"), pch = 19, col = c("gray", "black", "blue"))
+plot(benefits ~ salary, dat, subset = gender == "Man", pch = 19, cex = 0.5, col = "gray")#
+points(benefits ~ salary, dat, subset = gender == "Woman", pch = 19, cex = 0.5, col = "black")#
+points(benefits ~ salary, dat, subset = gender == "Non-binary", pch = 19, cex = 0.5, col = "blue")#
+legend("topleft", c("Man", "Woman", "Non-binary"), pch = 19, col = c("gray", "black", "blue"))
+plot(1:25)
+plot(1:25, xlim = c(0, 25), ylim = c(0, 25))
+plot(1:25, xlim = c(0, 25), ylim = c(0, 25), las = 1)
+plot(1:25, pch = 1:25, xlim = c(0, 25), ylim = c(0, 25), las = 1)
+plot(1:25, pch = 1:25, col = 1:25, xlim = c(0, 25), ylim = c(0, 25), las = 1)
+plot(funcion(x)x^2, xlim = c(-4,4))
+plot(function(x)x^2, xlim = c(-4,4))
+plot(function(x)x^2, xlim = c(-4,4), lwd = 2)
+plot(function(x)x^2, xlim = c(-4,4), lwd = 2, las = 1)
+points(c(2, 2), c(4, 6), pch = 19)
+points(c(2, 2), c(4, 6), pch = 21, pt.fg = c("white", "black"), )
+points(c(2, 2), c(4, 6), pch = 21, pt.bg = c("white", "black"), )
+points(c(2, 2), c(4, 6), pch = 21, bg = c("white", "black"), )
+points(c(2, 2), c(4, 6), pch = 21, bg = c("white", "black"), col = "blue")
+points(c(2, 2), c(4, 6), pch = 21, bg = c("white", "black"), col = "black", cex = 1.3, lwd =2)
+points(c(2, 2), c(4, 6), pch = 24, bg = c("white", "black"), col = "black", cex = 1.3, lwd =2)
+plot(function(x)x^2, xlim = c(-4,4), lwd = 2, las = 1)
+points(c(2, 2), c(4, 6), pch = 21, bg = c("white", "black"), col = "black", cex = 1.3, lwd =2)
