@@ -1,0 +1,31 @@
+\documentclass[10pt]{beamer}
+
+\begin{document}
+\frame{\frametitle{Debate paperwork}
+See work/debate\underline{\,\,}form.pdf for content recommendations.
+}
+
+\begin{frame}[fragile]\frametitle{Tips}
+\begin{itemize}
+\item Limit text.
+\item No gifs.
+\item You can make your own simple graphs in R.
+\begin{verbatim}
+files <- T
+if(files)pdf("....pdf", height = 5, width = 5, bg = "white")
+plot(1:25, pch=1:25, col=1:25)
+if(files)dev.off()
+\end{verbatim}
+\item No explicit bibliography necessary.
+\item You can have fun, but you are not a comedian (probably).
+\end{itemize}
+\end{frame}
+
+
+\frame{\frametitle{}
+\begin{tabular}{cc}
+\onslide<1-> a & \onslide<2-> b \\
+\onslide<3-> c & \onslide<4-> d
+\end{tabular}
+}
+\end{document}
