@@ -1,0 +1,51 @@
+\RequirePackage{pdfmanagement-testphase}
+\DeclareDocumentMetadata{uncompress,pdfversion=2.0}
+
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{tagpdf}
+\tagpdfsetup{activate,paratagging,interwordspace}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\newcommand{\R}{\texttt{R}}
+
+\newcommand{\compactlist}{\setlength{\itemsep}{0pt} \setlength{\parskip}{0pt} \setlength{\leftskip}{-1em}}
+\renewcommand{\headrulewidth}{0.3pt}
+
+
+\lhead{MATH 2753 -- TPMS}
+\rhead{Fall 2023}
+\chead[RE]{\hspace{2cm}\bf Math aRt}
+\cfoot{}
+\rfoot{\thepage}
+\pagestyle{fancy}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+Work on the following alone or in groups today.
+\begin{enumerate}
+\item Sierpinski Triangle challenges
+\begin{enumerate}
+\item Rewrite the Sierpinski Triangle code in such a way that it adds a specifically-colored point to an existing plot each step of the calculation.
+\item Modify that code to only plot the point if the step number is beyond a certain value.
+\item Experiment with the calculations performed at each step to generate warped versions of the triangle that are visually interesting.
+\item Experiment with the calculations by using matrices and vectors to perform the calculation at each step.
+\end{enumerate}
+\item Line art challenges\footnote{Visit \url{https://bit.ly/TPMS-math-art} for more context.} Use the following code template to generate digital ``string art''.
+\begin{verbatim}
+plot(NULL, xlim = c(-1, 2), ylim = c(-1, 2), xlab = "", ylab = "", axes=F)
+n <- 100
+for(i in 1:n){
+	x0 <- cos(2*pi*(1 * i/n))
+	x1 <- 1 - cos(2*pi*(1 * i/n))
+	y0 <- sin(2*pi*(1 * i/n))
+	y1 <- 1 - sin(2*pi*(1 * i/n))
+	segments(x0, y0, x1, y1, lwd = 0.1)
+}
+\end{verbatim}
+\end{enumerate}
+\end{document}
