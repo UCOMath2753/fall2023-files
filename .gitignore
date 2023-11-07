@@ -1,3 +1,6 @@
 !
 *.aux
 .DS_Store
+*.history
+*.history
+r/.Rhistory
