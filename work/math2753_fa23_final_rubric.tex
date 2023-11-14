@@ -1,0 +1,109 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\newcommand{\compactlist}{\setlength{\itemsep}{0pt} \setlength{\parskip}{0pt} \setlength{\leftskip}{-1em}}
+\usepackage{verbatim}
+
+\newenvironment{overbatim}{\verbatim}{\endverbatim}
+\usepackage[top=0.8in, bottom=0.8in,  left=1in, right=1in]{geometry}
+\usepackage{pdfpages}
+\lhead{MATH 2753 -- Tech Prof Math Stat}
+\rhead{Fall 2023}
+\chead[RE]{{\bf Final rubric}}
+\cfoot{}
+
+\pagestyle{fancy}
+\begin{document}
+\noindent{\textbf{Evaluator: \underline{\hspace{5cm}}}}\hfill\textbf{Presenter: \underline{\hspace{5cm}}}
+
+\begin{description}
+
+\item[Rules:] Using the characteristics on the back of this sheet, you will be evaluated by me and by a randomly assigned student.  Your grade will be determined by the score you earn from me with some influence of the score assigned by your student judge, by the quality of \textit{written feedback} that you give as the judge for a fellow student.
+
+
+\item[Short version:] Use R, sage, or both, to do something mathematically interesting or useful. Then, use {\LaTeX} to tell us about it in a brief presentation to be given during finals week.
+
+\item[Long version:] Solve a mathematical problem using R, sage, or a combination of both. Your problem could be a computationally-challenging problem from a current or recent class, inspired by something you are mathematically curious about, or an extension to something from class.
+
+\noindent In general your \verb|beamer| presentation should include,
+\begin{itemize}
+\item a statement of your mathematical problem
+\item an overview of your approach (which software and why)
+\item a mathematical result, object, or calculation - a brief, but readable calculation with \verb|align*|, or a few nice equations in \verb|\[...\]|
+\item a simple \verb|tabular| display, or better yet, a graph or graphs
+\begin{itemize}\compactlist
+\item \verb|table| or \verb|figure| or standard captions are not necessary
+\item only include images that you are unable to recreate yourself - you can now generate graphs and reproduce mathematical statements, no screenshots of those
+\end{itemize}
+\item a summary of what you learned (and perhaps what you wish you had done differently)
+\item A sample of code or list of commands used - you can use a screenshot, or use the following slide template. Some things may not work perfectly, so keep this slide simple.
+\begin{overbatim}
+\begin{frame}}[fragile]
+     \frametitle{sample title}
+     \begin{verbatim}
+     ...
+     \end{verbatim}
+\end{frame}
+\end{overbatim}
+
+\item See D2L News for submission link (closer to finals week) and a long list of \emph{sample} topics (now).
+\end{itemize}
+Some of your presentations may not exactly fit the template outlined above, but you should \textbf{clearly demonstrate how you used sage and\slash{}or R to solve your problem and\slash{}or make figures}.
+\end{description}
+\vfill
+Let me know if you have any questions about these suggestions or the rubric categories.
+\newpage
+\begin{description}
+\item[Evaluator:] \underline{\hspace{5cm}}\hfill\textbf{Presenter: \underline{\hspace{5cm}}}
+
+\item[Score sheet] Check the most appropriate box for each category.  Use the space below for additional comments.  Scores spanning two categories are possible.
+\item[Evidence of the project]\,
+
+\begin{tabular}{l | p{1in}| p{1in}| p{1in}|}
+ & Weak & Neutral & Strong\\
+\hline
+Clarity of project goal & & &\\[10pt]
+\hline
+Clarity of approach & & &\\[10pt]
+\hline
+Relevance of results & & &\\[10pt]
+\hline
+Evidence of progress with project & & &\\[10pt]
+\hline
+\end{tabular}
+
+\item[Quality of the presentation]\,
+
+
+\begin{tabular}{l | p{1in}| p{1in}| p{1in}|}
+ & Weak & Neutral & Strong\\
+\hline
+Materials submitted appropriately & & & \\[10pt]
+\hline
+Demonstrated \LaTeX{} skills & & & \\
+\hfill\small{\it{equations, figures, tabular, verb\slash{}verbatim}} & & &\\
+\hline
+Quality of slides & & &\\
+\hfill\small{\it font, colors, layout, spelling} & & & \\
+\hline
+Quality of presentation & & &\\
+\hfill\small{\it volume, clarity, rehearsed} & & & \\
+\hline
+Pace\slash{}Time of presentation (\(\approx 5\) minutes)& & &\\[10pt]
+\hline
+Professionalism & & &\\
+\hfill\small{\it{tone, style}}&&&\\
+\hline
+
+\end{tabular}
+
+\item[Overall evaluation] (Give comments in the space below)
+\vfill
+\end{description}
+
+\hfill\textbf{Project Grade: \underline{\hspace{5cm}}}
+
+\hfill\textbf{Presentation Grade: \underline{\hspace{5cm}}}
+\end{document}
